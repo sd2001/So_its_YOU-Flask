@@ -19,6 +19,9 @@ app=Flask(__name__)
 
 @app.route('/')
 def login():
+    email=request.form.get('email')
+    password=request.form.get('pass')
+    
     return render_template('login.html')
 
 
