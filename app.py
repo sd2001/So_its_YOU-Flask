@@ -43,13 +43,13 @@ def reg_post():
     existing=data.find_one({'name': name})
     if existing is not None :
         flash("Your Email Address is registered with us, try Logging in")
-        return redirect(url_for('login'))
-        
-    user_info={'username': name,
-               'email': email,
-               'password': password} 
-    data.insert_one(user_info)
-    session['username']=name
+        return redirect(url_for('reg'))
+    else:   
+        user_info={'username': name,
+                'email': email,
+                'password': password} 
+        data.insert_one(user_info)
+        session['username']=name
     return redirect(url_for('login'))
 
 @app.route('/logout')

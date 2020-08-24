@@ -13,13 +13,13 @@
 				<div align='center' class="login100-pic js-tilt" data-tilt>
 					<img src="/static/images/img-01.png" alt="IMG">
 				</div>
-					{% with messages=get_flashed_messages()%}
-					{%if messages%}
+					{% with messages = get_flashed_messages() %}
+       				 {% if messages %}
 					<div class="notification is-danger">
-					{{message[0]}} Go to <a href="{{url_for('login')}}">Login Page</a>
+					{{ messages[0] }} Go to <a href="{{ url_for('auth.login') }}">login page</a>.
 					</div>
-					{% endif %}
-				{%endwith%}
+        			{% endif %}
+					{%endwith%}
 				<form action="/register" method="POST" class="login100-form validate-form">
 					<br |><span class="login100-form-title">
 						Sign up as a Member
