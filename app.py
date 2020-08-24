@@ -19,14 +19,23 @@ app=Flask(__name__)
 
 @app.route('/')
 def login():
+    return render_template('login.html')
+    
+
+
+@app.route('/',methods=['POST'])
+def login_post():
     email=request.form.get('email')
     password=request.form.get('pass')
-    
-    return render_template('login.html')
-
-
-# @app.route('/',methods=['POST'])
-# def login_post():
+    data=db.credentials
+    for i in data.find():
+        if i['email']==email:
+            if bcrypt.hashpw(password.encode('utf-8'), i['password'].encode('utf-8')) == i['password'].encode('utf-8'):
+                return "Welcome "+i['username']
+        else:
+            flash("Your Email Address isn't already registered with us")
+            return redirect(url_for('login'))
+    return redirect(url_for('login'))
 
     
 
