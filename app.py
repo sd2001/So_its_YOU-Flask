@@ -42,7 +42,7 @@ def reg_post():
     data=db.credentials
     for i in data.find():
         if i['email']==email:  
-            flash("Your Email Address is registered with us, try Logging in")
+            flash("Your Email Address is already registered with us, try Logging in")
             return redirect(url_for('reg')) 
     else:   
         user_info={'username': name,
