@@ -40,10 +40,10 @@ def reg_post():
     
     
     data=db.credentials
-    existing=data.find_one({'name': name})
-    if existing is not None :
-        flash("Your Email Address is registered with us, try Logging in")
-        return redirect(url_for('reg'))
+    for i in data.find:
+        if i['email']==email:  
+            flash("Your Email Address is registered with us, try Logging in")
+            return redirect(url_for('reg')) 
     else:   
         user_info={'username': name,
                 'email': email,
