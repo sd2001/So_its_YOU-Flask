@@ -1,0 +1,58 @@
+{%extends 'base.html' %}
+
+{% block head %}
+<title>Register with US</title>
+{% endblock %}
+
+{%block body%}
+
+
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div align='center' class="login100-pic js-tilt" data-tilt>
+					<img src="/static/images/img-01.png" alt="IMG">
+				</div>
+					{% with messages=get_flashed_messages()%}
+					{%if messages%}
+					<div class="notification is-danger">
+					{{message[0]}} Go to <a href="{{url_for('login')}}">Login Page</a>
+					</div>
+					{% endif %}
+				{%endwith%}
+				<form action="/register" method="POST" class="login100-form validate-form">
+					<br |><span class="login100-form-title">
+						Sign up as a Member
+					</span>
+
+                    <br \><div class="wrap-input100 validate-input" data-validate = "Valid name is required: abc">
+						<input class="input100" type="text" name="name" placeholder="Your Name">
+						<span class="focus-input100"></span>
+						
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email" placeholder="Email">
+						<span class="focus-input100"></span>
+						
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="pass" placeholder="Password">
+						<span class="focus-input100"></span>
+						
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Sign Up
+						</button>
+					<br \></div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}
