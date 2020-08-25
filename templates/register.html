@@ -13,16 +13,18 @@
 				<div align='center' class="login100-pic js-tilt" data-tilt>
 					<img src="/static/images/img-01.png" alt="IMG">
 				</div>
-					{% with messages = get_flashed_messages() %}
+					
+				<form action="/register" method="POST" class="login100-form validate-form">
+				{% with messages = get_flashed_messages() %}
        				 {% if messages %}
 					<div class="notification is-danger">
-					{{ messages[0] }}<br \> <a href="{{ url_for('login') }}">Login Page(click me)</a>.
+					{{ messages[0] }}<a href="{{ url_for('login') }}">Login Page(click me)</a>.
 					</div>
         			{% endif %}
 					{%endwith%}
-				<form action="/register" method="POST" class="login100-form validate-form">
+
 					<span class="login100-form-title">
-						Sign up as a Member
+					<br |>Sign up as a Member
 					</span>
 
                     <div class="wrap-input100 validate-input" data-validate = "Valid name is required: abc">
@@ -47,9 +49,17 @@
 						<button class="login100-form-btn">
 							Sign Up
 						</button>
-					<br \></div><br \><br \><br \><br \><br \>
+					<br \></div><br \>
 
 				</form>
+				<div align='center' class="container-login100-form-btn">
+				<a href='http://127.0.0.1:5000/login'>
+						<button class="login100-form-btn">							
+							Login to an existing Account
+						</button>
+						</a>
+					
+					</div><br \><br \><br \><br \><br \><br \><br \>
 			</div>
 		</div>
 	</div>
