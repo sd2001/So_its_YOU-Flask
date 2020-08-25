@@ -11,10 +11,7 @@ db=client['Users']
 
 
 app=Flask(__name__)
-# notifications = Notifications()
-# notifications.init_app(app=app)
-# login_manager=LoginManager()
-# login_manager.login_view='login'
+
 @app.route('/')
 def home():
     return render_template('index.html')
