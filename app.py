@@ -33,9 +33,9 @@ def login_post():
     
     for i in data.find():
         if i['email']==email:
-            name=i['username']
-            flag=True
-            if check_password_hash(i['password'], password):                               
+            name=i['username']            
+            if check_password_hash(i['password'], password):    
+                flag=True                           
                 return redirect(url_for('profile'))
             
               
