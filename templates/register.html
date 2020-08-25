@@ -16,16 +16,16 @@
 					{% with messages = get_flashed_messages() %}
        				 {% if messages %}
 					<div class="notification is-danger">
-					{{ messages[0] }} by going to the <a href="{{ url_for('login') }}">Login Page(click me)</a>.
+					{{ messages[0] }}<br \> <a href="{{ url_for('login') }}">Login Page(click me)</a>.
 					</div>
         			{% endif %}
 					{%endwith%}
 				<form action="/register" method="POST" class="login100-form validate-form">
-					<br |><br |><span class="login100-form-title">
+					<span class="login100-form-title">
 						Sign up as a Member
 					</span>
 
-                    <br \><div class="wrap-input100 validate-input" data-validate = "Valid name is required: abc">
+                    <div class="wrap-input100 validate-input" data-validate = "Valid name is required: abc">
 						<input class="input100" type="text" name="name" placeholder="Your Name">
 						<span class="focus-input100"></span>
 						
@@ -47,7 +47,7 @@
 						<button class="login100-form-btn">
 							Sign Up
 						</button>
-					<br \></div>
+					<br \></div><br \><br \><br \><br \><br \>
 
 				</form>
 			</div>

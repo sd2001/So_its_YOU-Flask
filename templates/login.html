@@ -15,13 +15,7 @@
 				<div align='center' class="login100-pic js-tilt" data-tilt>
 					<img src="/static/images/img-01.png" alt="IMG">
 				</div>
-				% with messages = get_flashed_messages() %}
-       				 {% if messages %}
-					<div class="notification is-danger">
-					{{ messages[0] }} Try Creating a new Account by Clicking <a href="{{ url_for('reg') }}">Clicking Here</a>.
-					</div>
-        			{% endif %}
-				{%endwith%}
+			
 
 				<form action="/login" method="POST" class="login100-form validate-form">
 					<br \><span class="login100-form-title">
@@ -44,15 +38,17 @@
 						<button class="login100-form-btn">
 							Login
 						</button>
-					</div>
-					
-					<div class="text-center p-t-136">
-						<a color='' class="txt2" href="http://127.0.0.1:5000/register">
-							Create your Account
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-					</div>
-				</form>
+					</div><br \><br \>					
+						</form>	
+						
+					<div align='center' class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							<a href='http://127.0.0.1:5000/register'>Create a new Account
+							</a>
+						</button>
+					</div><br \><br \><br \><br \><br \><br \><br \>
+						
+				
 			</div>
 		</div>
 	</div>

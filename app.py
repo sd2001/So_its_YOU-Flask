@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, url_for, flash, session, req
 import pymongo
 from pymongo import MongoClient
 from flask_login import LoginManager
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash,check_password_hash
 import bcrypt
 
 
@@ -14,28 +14,37 @@ app=Flask(__name__)
 
 # login_manager=LoginManager()
 # login_manager.login_view='login'
-
-
-
 @app.route('/')
+def home():
+    return render_template('welcome.html')
+
+
+@app.route('/login')
 def login():
     return render_template('login.html')
     
 
 
-@app.route('/',methods=['POST'])
+@app.route('/login',methods=['POST'])
 def login_post():
     email=request.form.get('email')
     password=request.form.get('pass')
     data=db.credentials
+    flag=False
     for i in data.find():
         if i['email']==email:
-            if bcrypt.hashpw(password.encode('utf-8'), i['password'].encode('utf-8')) == i['password'].encode('utf-8'):
-                return "Welcome "+i['username']
-        else:
-            flash("Your Email Address isn't already registered with us")
-            return redirect(url_for('login'))
+            flag=True
+            if check_password_hash(i['password'], password):                
+                return redirect(url_for('profile'))
+            
+        flag=None
+            
+    if flag is None:
+        flash("Check your credentials and try again")
+        return redirect(url_for('login'))
+    
     return redirect(url_for('login'))
+   
 
     
 
@@ -48,13 +57,13 @@ def reg_post():
     name=request.form.get('name')
     email=request.form.get('email')
     password=request.form.get('pass')
-    password=bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    password=generate_password_hash(password, method='sha256')
     
     
     data=db.credentials
     for i in data.find():
         if i['email']==email:  
-            flash("Your Email Address is already registered with us, try Logging in")
+            flash("Your Email Address is already registered with us")
             return redirect(url_for('reg')) 
     else:   
         user_info={'username': name,
@@ -66,9 +75,13 @@ def reg_post():
 
 @app.route('/logout')
 def logout():
-    return redirect(url_for(login))
+    return redirect(url_for('login'))
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
 
 if __name__=='__main__':
-    app.secret_key = 'hellodoggy'
+    app.secret_key = 'hellouserapi'
     app.run(debug=True)
     
