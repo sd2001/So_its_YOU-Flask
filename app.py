@@ -4,19 +4,20 @@ from pymongo import MongoClient
 from flask_login import LoginManager
 from werkzeug.security import generate_password_hash,check_password_hash
 import bcrypt
-
+#from flask_notifications import Notifications
 
 client=MongoClient('mongodb+srv://swarnabha:swarnabhadb@cluster0.yfmwo.mongodb.net/Logbase?retryWrites=true&w=majority')
 db=client['Users']
 
 
 app=Flask(__name__)
-
+# notifications = Notifications()
+# notifications.init_app(app=app)
 # login_manager=LoginManager()
 # login_manager.login_view='login'
 @app.route('/')
 def home():
-    return render_template('welcome.html')
+    return render_template('index.html')
 
 
 @app.route('/login')
@@ -37,9 +38,9 @@ def login_post():
             if check_password_hash(i['password'], password):                
                 return redirect(url_for('profile'))
             
-        flag=None
-            
-    if flag is None:
+              
+             
+    if flag == False:
         flash("Check your credentials and try again")
         return redirect(url_for('login'))
     
