@@ -80,6 +80,7 @@ def reg_post():
 
 @app.route('/logout')
 def logout():
+    #flash("You are kindly requested to Login first")
     return redirect(url_for('login'))
 
 @app.route('/profile')
