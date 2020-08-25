@@ -18,9 +18,17 @@
 			    
 
 				<form action="/login" method="POST" class="login100-form validate-form">
+				
 					<br \><span class="login100-form-title">
 						Member Login
 					</span>
+					{% with messages = get_flashed_messages() %}
+					{% if messages %}
+					<div align ='center' class="notification is-danger">
+						{{ messages[0] }}
+					</div>
+					{% endif %}
+					{% endwith %}
 
 					<br \><div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text" name="email" placeholder="Email">
