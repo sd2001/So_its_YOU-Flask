@@ -15,10 +15,11 @@
 				</div>
 					
 				<form action="/register" method="POST" class="login100-form validate-form">
-				{% with messages = get_flashed_messages() %}
+				 {% with messages = get_flashed_messages() %}
        				 {% if messages %}
 					<div class="notification is-danger">
 					{{ messages[0] }}<a href="{{ url_for('login') }}">Login Page(click me)</a>.
+					
 					</div>
         			{% endif %}
 					{%endwith%}
