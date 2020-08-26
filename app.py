@@ -6,7 +6,7 @@ from werkzeug.security import generate_password_hash,check_password_hash
 import bcrypt
 from flask_login import login_user,current_user
 
-client=MongoClient('mongodb+srv://swarnabha:swarnabhadb@cluster0.yfmwo.mongodb.net/Logbase?retryWrites=true&w=majority')
+client=MongoClient('mongodb+srv://swarnabha:<password>@cluster0.yfmwo.mongodb.net/Logbase?retryWrites=true&w=majority')
 db=client['Users']
 
 det=[1,3]
