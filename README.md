@@ -1,7 +1,7 @@
 # So_its_YOU-Flask
 ## <div align="center"> Database Authenticated Sign in/Sign up Deployed using Flask</div>
 
-**<div align="center"> 👋Welcome Page for Users🥳 <d/iv>**
+**<div align="center"> 👋Welcome Page for Users🥳 </div>**
 
 ![Welcome Image](https://github.com/sd2001/So_its_YOU-Flask-/blob/master/f_welcome.jpg)
  # <div align="center">⬇️</div>
@@ -18,7 +18,6 @@
 <hr \>
 
 ***<div align="center">All issues involving email duplication, invalid credentials and new account creation have been addressed💪***</div>
-</div>
 
 - [x] Python
 - [x] HTML
