@@ -30,7 +30,7 @@
 ### <div align="center">🐉Python + Deployment💖
 
 ```
-                               This Repo is subjected to further Improvements before its deployed LIVE
+This Repo is subjected to further Improvements before its deployed LIVE
 ```
 
 </div>
